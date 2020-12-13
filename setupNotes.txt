@@ -1,0 +1,16 @@
+docker commit --change "ENV DEBUG=true" c3f279d17e0a  svendowideit/testimage:version3
+
+docker   inspect -f "{{ .Config.Env }}"  ros-catkin-ws 
+
+docker  commit --change "ENV ROS_HOSTNAME=ros-c3po-master"  ros-catkin-ws kurickabides/ros-c3po-master:v1
+
+--env ROS_HOSTNAME=ros-c3po-client --env ROS_MASTER_URI=http://ros-c3po-master:11311
+
+docker  commit --change "ENV ROS_HOSTNAME=ros_essentials_master" ros-catkin-ws kurickabides/ros_essentials_cpp:v1
+
+
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+echo "source /root/lesson1/catkin_ws/devel/setup.bash" >> ~/.bashrc
+
+source ~/.bashrc
+
